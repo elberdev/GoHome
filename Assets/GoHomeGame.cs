@@ -38,7 +38,12 @@ public class GoHomeGame : MonoBehaviour {
 
 	void UpdateStatus() {
 		Vector2 distance = homeLocation - playerLocation;
+		bool gameOver = distance.magnitude == 0;
 		numberOfSteps++;
-		print ("After " + numberOfSteps + " steps you are " + distance + " meters away from home.\n");
+		if (gameOver == true) {
+			print ("You win! You made it back to your stinky home in " + numberOfSteps + "!\n");
+		} else {
+			print ("After " + numberOfSteps + " steps you are " + distance.magnitude + " meters away from home.\n");
+		}
 	}
 }
